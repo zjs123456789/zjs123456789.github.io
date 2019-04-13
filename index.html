@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family:arial;
+        }
+        .header{
+            width: 100%;
+            height: 629px;
+            background-color: red;
+            background-image: url(images/header-pattern.gif);
+          }
+        .header-inner{
+            width: 968px;
+            height: 625px;
+            /*background-color: #ccc;*/
+            margin: 0 auto;
+        }
+        .top{
+            width: 968px;
+            height: 91px;
+            /*background-color: #000;*/
+            padding-top: 70px;
+        }
+        .logo{
+            width: 182px;
+            height: 57px;
+            background-image: url(images/logo1_03.jpg);/*logo当背景图插入*/
+            /*margin-top: 70px;*/
+            margin-left: 45px;
+            float: left;
+        }
+        nav{
+            width: 612px;
+            height: 91px;
+           /* background-color: #fff;*/
+            float: right;
+        }
+        nav ul {
+            list-style:none;
+            margin-top: 20px;
+        }
+        nav ul li{
+            float: left;
+            margin-right: 8px;
+        }
+        nav ul li:last-child{
+            margin-right: 0;
+        }
+        nav ul li a{
+            display: block;
+            font-size:14px;
+            width: 80px;
+            height: 31px;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 31px;
+            color:#fff;
+            text-decoration: none;
+        }
+        nav ul li:first-child a{
+            background-image: url(images/nav-bg.gif);
+        }
+        nav ul li a:hover{
+            background-image: url(images/nav-bg.gif);
+        }
+
+
+        .banner{
+            width: 968px;
+            height: 465px;
+            /*background-color: hotpink;*/
+
+        }
+        .banner-left{
+            width: 590px;
+            height: 418px;
+            float: left;
+            position:relative;
+        }
+        .banner-left .big{
+            border:10px solid #d92500;
+            border-radius: 6px;
+        }
+        .banner-left .small{
+            position:absolute;
+            bottom:-10px;
+            right:-16px;
+
+        }
+        /*图片要盖住其他的盒子，要使用定位*/
+        /*最常用的定位方式 找参照物定位：参照物必须是被定位的元素的上级*/
+        /*实现定位：给参照物写position:relative; 给被定位元素写position: absolute；使用 top bottom left right调整位置 默认是在参照物的左上*/
+       /* 所有定位的元素都可以添加一个z-index 样式，调整定位元素的上下位置 越大越靠上*/
+        .banner-right{
+            width: 376px;
+            height: 371px;
+            /*background-color: red;*/
+            background-color: #2a2a2a;
+            float: left;
+            border:1px solid #3a3a3a;
+            margin-top: 10px;
+            padding-top: 24px;
+        }
+        .banner-right>div{
+            width:100%;
+            height: 114px;
+            cursor:pointer;
+
+        }
+        .banner-right>div:nth-child(2){
+           background-color: #1d1d1d;
+           color:#fff;
+        }
+        .banner-right>div:hover{
+            background-color: #1d1d1d;
+            color:#fff;
+        }
+        .banner-right>div .inner{
+            width: 334px;
+            height: 98px;
+            padding-top: 15px;
+            margin: 0 auto;
+            border-bottom:1px dashed #4b4b4b;
+        }
+        .banner-right>div:last-child .inner{
+            border-bottom:none;
+        }
+        .banner-right>div .inner img{
+            float: left;
+        }
+        .banner-right>div .inner ul{
+            float: left;
+            list-style:none;
+        }
+        .banner-right>div .inner ul:nth-child(2){
+            margin-left: 26px;
+            margin-right: 40px;
+        }
+        .banner-right>div .inner ul li{
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .banner-right>div .inner ul li:first-child{
+            margin-top: 0;
+        }
+        .main{
+            width:100%;
+            height: 849px;
+            background-color: #121212;
+
+        }
+        .main-banner{
+            width: 968px;
+            height: 849px;
+            /*background-color: teal;*/
+            margin: 0 auto;
+        }
+        .main-left{
+            width: 599px;
+            height: 849px;
+            /*background-color: #ccc;*/
+            float: left;
+
+        }
+        .left-top{
+            width: 599px;
+            height: 283px;
+            /*background-color: #888;*/
+            border-bottom: 1px dashed #323232;
+            padding-top: 50px;
+        }
+        .left-top h2{
+            /*margin-top: 55px;*/
+        }
+        .left-bottom h2{
+            margin-top: 35px;
+        }
+        .left-top .p-one,.left-top .p-three{
+            color:#c0c0c0;
+            font-size:12px;
+        }
+        .left-top .p-two{
+            color:#616161;
+            font-size:12px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        .left-bottom{
+            width: 599px;
+            height: 499px;
+            /*background-color: #444;*/
+        }
+        .main-left h2{
+            font-size: 34px;
+            color:#fefefe;
+            font-style:italic;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+        .left-bottom p{
+            font-size:16px;
+            color:#909090;
+            font-style: italic;
+            line-height: 20px;
+        }
+        .left-bottom .pics{
+             width: 599px;
+             height: 200px;
+        }
+        .left-bottom .pics>img{
+            border:4px solid #fff;
+            border-radius:4px;
+            display:block;
+            float: left;
+            margin-right: 9px;
+            margin-top: 9px;
+            /*监听样式的变化*/
+            /*transition:样式名 时间*/
+            transition:transform 0.5s;
+        }
+        /*划过变化*/
+        .left-bottom .pics>img:hover{
+            /*放大1.5倍*/
+            transform:scale(1.5) rotate(360deg);/*旋转*/
+            border:4px solid pink;
+
+        }
+        .main-left .more{
+            color: #fff;
+            font-size:12px;
+            font-weight: bold;
+            text-decoration: none;
+            display:block;
+            width: 93px;
+            height: 35px;
+            background: linear-gradient(#ec2800,#b21e00);
+            border-radius: 5px;
+            text-align: center;
+            line-height: 35px;
+            margin-top: 20px;
+            transition:all 0.5s;
+
+
+
+        }
+        .main-left .more:hover{
+            color:#000;
+            background: #fff;
+        }
+        .main-right{
+            width: 293px;
+            height: 849px;
+            /*background-color: blue;*/
+            float: right;
+        }
+        .right-top{
+            width: 253px;
+            height: 306px;
+            background:linear-gradient(#b5c83c,#bfd343);
+            border-radius: 5px;
+            margin-top: 43px;
+            padding:20px;
+        }
+        .right-top h2{
+            color:#000;
+            width: 253px;
+            height: 80px;
+            font-size:32px;
+
+        }
+        .right-top .line{
+            width: 253px;
+            height: 2px;
+            background-image: url(images/bd_bot.gif);
+        }
+        .right-top ul{
+            list-style:none;
+        }
+        .right-top ul li{
+            margin-top: 10px;
+        }
+        .right-top ul li img{
+            vertical-align: middle;
+        }
+        .right-top ul li a{
+            font-size:16px;
+            color:#000;
+            margin-left: 16px;
+            vertical-align: middle;
+        }
+        .right-top ul li a:hover{
+            text-decoration: none;
+        }
+        .right-bottom{
+            width: 293px;
+            height: 243px;
+            /*background-color: #ccc;*/
+            margin-top: 43px;
+        }
+        .right-bottom ul li{
+            margin-top: 8px;
+        }
+        .right-bottom ul li:first-child{
+            margin-top: 0;
+        }
+        .right-bottom ul{
+            width: 145px;
+            height: 80px;
+            /*background-color: red;*/
+            float: left;
+            list-style:none;
+        }
+        .right-bottom ul li a{
+            color:#fefefe;
+            font-size: 14px;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+        .right-bottom ul li a:hover{
+            text-decoration: none;
+        }
+        .right-bottom ul li img{
+            vertical-align: middle;
+            /*文字和图片居中（垂直）*/
+        }
+        .right-bottom h2{
+            color:#fff;
+            font-style:italic;
+        }
+        /*方案二*/
+        /*列表项前面的图片也能点击的做法：图片不使用img写而用背景图去写*/
+        .right-bottom ul li a{
+            background-image: url(images/arrow1.gif);
+            background-repeat: no-repeat;
+            background-position: 0 center;
+            display:block;
+            text-indent: 12px;
+            /*首行缩进*/
+        }
+        .footer{
+            width: 100%;
+            height: 140px;
+            background-color: #1d1d1d;
+            border-top: 1px solid #292929;
+        }
+        .footer-inner{
+            width: 968px;
+            height: 100px;
+            margin: 0 auto;
+            padding-top: 40px;
+        }
+        .footer-inner p:first-child{
+
+        }
+        .footer-inner p:first-child a{
+            font-size:12px;
+            color:#777;
+            text-decoration: none;
+            border-right: 1px solid #777;
+            padding-right: 12px;
+            padding-left: 12px;
+        }
+        .footer-inner p:first-child a:last-child{
+            border-right: none;
+        }
+        .footer-inner p:first-child a:first-child{
+            padding-left: 0;
+        }
+        .footer-inner p:first-child a:hover{
+            color:#fff;
+        }
+        .footer-inner p:last-child span{
+            font-size: 12px;
+            color:#e0e0e0;
+            word-spacing:10px;
+            margin-right: 18px;
+        }
+        .footer-inner p:last-child a{
+            font-size: 12px;
+            color:#777;
+
+        }
+         .footer-inner p:last-child a:hover{
+            text-decoration: none;
+         }
+
+        </style>
+    </head>
+
+
+    <body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="top">
+                <div class="logo"></div>
+                <nav>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Selling</a></li>
+                        <li><a href="">Buying</a></li>
+                        <li><a href="">Renting</a></li>
+                        <li><a href="">Moving</a></li>
+                        <li><a href="">Finance</a></li>
+                        <li><a href="">Contacts</a></li>
+                    </ul>
+                </nav><!-- 导航标签 -->
+            </div>
+            <div class="banner">
+                <div class="banner-left">
+                    <img class="big" src="images/big-img2.jpg" alt="">
+                    <img class="small" src="images/extra-banner.png" alt="">
+                </div>
+                <div class="banner-right">
+                    <div class="one">
+                        <div class="inner">
+                        <img src="images/f_thumb1.png" alt="">
+                        <ul>
+                            <li>2010 year</li>
+                            <li>4200</li>
+                            <li>sq.ft</li>
+                        </ul>
+                        <ul>
+                            <li>Brick, glass</li>
+                            <li>4 beds</li>
+                            <li>3 baths</li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="two">
+                        <div class="inner">
+                        <img src="images/f_thumb2.png" alt="">
+                        <ul>
+                            <li>2010 year</li>
+                            <li>4200</li>
+                            <li>sq.ft</li>
+                        </ul>
+                        <ul>
+                            <li>Brick, glass</li>
+                            <li>4 beds</li>
+                            <li>3 baths</li>
+                        </ul>
+                    </div>
+                    </div>
+                    <div class="three">
+                        <div class="inner">
+                        <img src="images/f_thumb3.png" alt="">
+                        <ul>
+                            <li>2010 year</li>
+                            <li>4200</li>
+                            <li>sq.ft</li>
+                        </ul>
+                        <ul>
+                            <li>Brick, glass</li>
+                            <li>4 beds</li>
+                            <li>3 baths</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main-banner">
+            <div class="main-left">
+                <div class="left-top">
+                    <h2>Welcome Message</h2>
+                    <p class='p-one'>LOREM IPSUM DOLOR SIT AMET CONSECTETUER ADIPISCING ELIT PRAESENT VESTIBULUM MOLES TIE LACUSENEANE NONUMMY HENDRERIT MAURIS PHASELLUS PORTUSCE</p>
+                    <p class="p-two">Nulla dsce feugiat malesuada odiobi nunc odio gravida at cursus nec luctusa loremaece nas trism dolor sit aconsecteetuer adipiscinges elitraesent</p>
+                    <p class="p-three">Aenean nonummy hendrerit maurihasellus portsce suscipit varium sociis natoque penatibus et magnis dis parturienetontes nascetur ridiculus musulla dutusce feugiat malesuada odorbi nunc odio gravida at cursus nec luctus alorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accum san malesuada orci.</p>
+                    <a class="more" href="http://baidu.com">Read More</a>
+                </div>
+                <div class="left-bottom">
+                    <h2>New Remodeling Rooms</h2>
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus musulla duis. Fuscecer feugiat malesuada odio. Morbi nunc odio, gravida at cursus nece luctus alorem. Maececnas tristique orci ac sem. Duis ultricies pharetra magna.</p>
+                    <div class="pics">
+                       <img src="images/thumb1.jpg" alt="">
+                       <img src="images/thumb2.jpg" alt="">
+                       <img src="images/thumb3.jpg" alt="">
+                       <img src="images/thumb4.jpg" alt="">
+                       <img src="images/thumb5.jpg" alt="">
+                       <img src="images/thumb6.jpg" alt="">
+                       <img src="images/thumb7.jpg" alt="">
+                       <img src="images/thumb8.jpg" alt="">
+                       <img src="images/thumb9.jpg" alt="">
+
+                    </div>
+                    <a class="more" href="https://www.tmall.com">Read More</a>
+                </div>
+            </div>
+            <div class="main-right">
+                <div class="right-top">
+                    <h2>5 Keys to Real Estate Sales </h2>
+                    <div class="line"></div>
+                    <ul>
+                        <li><img src="images/icon1.gif" alt="" /><a href="https://www.tmall.com">Prospecting</a></li>
+                        <li><img src="images/icon2.gif" alt="" /><a href="https://www.tmall.com">Listing Appointments</a></li>
+                        <li><img src="images/icon3.gif" alt="" /><a href="https://www.tmall.com">Open HouseBuyer's</a></li>
+                        <li><img src="images/icon4.gif" alt="" /><a href="https://www.tmall.com">Appointment</a></li>
+                        <li><img src="images/icon5.gif" alt="" /><a href="https://www.tmall.com">Thank You</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="right-bottom">
+                    <h2>Find Our Office</h2>
+                    <img src="images/map.jpg" alt="">
+                    <!-- 方案一 -->
+                    <!-- <ul>
+                        <li><img src="images/arrow1.gif" alt=""><a href="https://www.tmall.com">North America</a></li> 
+                        <li><img src="images/arrow1.gif" alt=""><a href="https://www.tmall.com">Europe</a></li> 
+                        <li><img src="images/arrow1.gif" alt=""><a href="https://www.tmall.com">Latin America</a></li>                      
+                    </ul>
+                    <ul>
+                        <li><img src="images/arrow1.gif" alt=""><a href="https://www.tmall.com">Asia</a></li>
+                        <li><img src="images/arrow1.gif" alt=""><a href="https://www.tmall.com">Australia</a></li>
+                        <li><img src="images/arrow1.gif" alt=""><a href="https://www.tmall.com">Africa</a></li>
+                    </ul> -->
+                   <!--  方案二 -->
+                   <ul>
+                        <li><a href="https://www.tmall.com">North America</a></li>
+                        <li><a href="https://www.tmall.com">Europe</a></li>
+                        <li><a href="https://www.tmall.com">Latin America</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="https://www.tmall.com">Asia</a></li>
+                        <li><a href="https://www.tmall.com">Australia</a></li>
+                        <li><a href="https://www.tmall.com">Africa</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="footer-inner">
+        <p>      
+            <a href="">HOME</a>
+            <a href="">SELLING</a>
+            <a href="">BUYING</a>
+            <a href="">RENTING</a>
+            <a href="">MOVING</a>
+            <a href="">FINANCE</a>
+            <a href="">CONTACTS</a>
+        </p>
+        <p>    
+            <span>REAL<!-- &nbsp;间隔 --> ESTATE  ?  2010</span>
+            <a href="" >Privacy Policy</a>
+        </p>            
+        </div>
+    </div>
+    </body>
+</html>
